@@ -1,2 +1,8 @@
 # Kubernetes documentation
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/
+kubectl run nginx --image=nginx --dry-run=client -o yaml > custom-pod.yaml
+kubectl apply -f pod.yaml
+kubectl delete -f pod.yaml
+kubectl exec -it nginx -- bash
+kubectl exec -it multi-container-pod -c redis-container -- bash
+kubectl run echo-pod --image=busybox:latest --command -- echo "Hello World!"
