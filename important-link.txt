@@ -6,3 +6,10 @@ kubectl delete -f pod.yaml
 kubectl exec -it nginx -- bash
 kubectl exec -it multi-container-pod -c redis-container -- bash
 kubectl run echo-pod --image=busybox:latest --command -- echo "Hello World!"
+kubectl api-resources
+kubectl explain pod
+kubectl explain pod.spec.containers
+kubectl get pods --show-labels
+kubectl label pod pod1 env=dev
+kubectl get pods -l env!=dev
+kubectl get pods -l env=dev
