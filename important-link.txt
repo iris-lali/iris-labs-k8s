@@ -2,6 +2,8 @@
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/
 #ReplicaSet
 https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+#DaemonSet
+https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
 kubectl run nginx --image=nginx --dry-run=client -o yaml > custom-pod.yaml
 kubectl apply -f pod.yaml
 kubectl delete -f pod.yaml
@@ -17,7 +19,7 @@ kubectl get pods -l env!=dev
 kubectl get pods -l env=dev
 kubectl scale --replicas=1 rs/frontend-replicaset
 kubectl get replicaset
- kubectl get rs
+kubectl get rs
 kubectl delete rs frontend-replicaset
 kubectl describe rs/webserver-replicaset
 kubectl delete -f rs.yaml
@@ -30,5 +32,7 @@ kubectl rollout undo deployment nginx-deployment --to-revision=2
 kubectl scale --replicas=3 deployment nginx-deployment
 kubectl delete deployment nginx-deployment
 kubectl create deployment demo-deployment --image=nginx --replicas 3
+kubectl create deployment demo-deployment --image=nginx --replicas=3
 kubectl get deployment demo-deployment -o yaml
 kubectl edit deployment demo-deployment
+kubectl get pods -o wide
