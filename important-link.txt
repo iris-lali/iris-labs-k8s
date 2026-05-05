@@ -36,3 +36,5 @@ kubectl create deployment demo-deployment --image=nginx --replicas=3
 kubectl get deployment demo-deployment -o yaml
 kubectl edit deployment demo-deployment
 kubectl get pods -o wide
+apt-get update && apt-get install curl -y
+kubectl create -f endpoints.yaml
