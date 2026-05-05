@@ -12,9 +12,13 @@
 # ####################
 
 set -x # Debug mode
+set -e # exits the script when there is an error
+set -o pipefail # exits when there is pipe failure or there an error in one of the pipe command
 
 df -h
 
 free -g
 
 nproc
+
+ps -ef | grep httpd | awk -F" " '{print $2}'
