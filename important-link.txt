@@ -4,6 +4,8 @@ https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/
 https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
 #DaemonSet
 https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+https://artifacthub.io/
+https://helm.sh/docs/intro/install/
 kubectl run nginx --image=nginx --dry-run=client -o yaml > custom-pod.yaml
 kubectl apply -f pod.yaml
 kubectl delete -f pod.yaml
@@ -38,3 +40,5 @@ kubectl edit deployment demo-deployment
 kubectl get pods -o wide
 apt-get update && apt-get install curl -y
 kubectl create -f endpoints.yaml
+kubectl create ingress firt-ingress --rule="example.internal/*=example-service:80" # Create ingress controler rules
+kubectl create ingress second-ingress --rule="example.internal/*=example-service:80" --rule="kplabs.internal/*=kplabs-service:80"
