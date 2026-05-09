@@ -1,0 +1,7 @@
+Run the pod command to create a pod without specifying the limits and requests and check the output. 
+It won't create the pod.
+
+run test2-pod --image=nginx -n quta-demo
+
+Test3: in the test3 try to remove the limit and keep the request only and then create the pod with it. It won't create the pod neither
+both limit and request must be present since we already specify them in  the namespace.
