@@ -1,0 +1,11 @@
+apiVersion: v1 
+kind: ResourceQuota
+metadata: 
+  name: object-count-quta
+  namespace: quota-demo
+spec: 
+ hard:
+   pods: "1"
+   secrets: "3" 
+   services: "10"
+   services.loadbalancers: "2"
