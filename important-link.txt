@@ -91,3 +91,9 @@ apt-get update && apt-get install curl -y
 kubectl create -f endpoints.yaml
 kubectl create ingress firt-ingress --rule="example.internal/*=example-service:80" # Create ingress controler rules
 kubectl create ingress second-ingress --rule="example.internal/*=example-service:80" --rule="kplabs.internal/*=kplabs-service:80"
+kubectl get resourcequota -n quota-demo
+kubectl get quota -n quota-demo
+
+kubectl top pods -A
+kubectl top nodes
+kubectl get pods --all-namespaces --field-selector metadata.namespace!=default
