@@ -97,3 +97,14 @@ kubectl get quota -n quota-demo
 kubectl top pods -A
 kubectl top nodes
 kubectl get pods --all-namespaces --field-selector metadata.namespace!=default
+
+kubectl get pv
+kubectl get pvc
+kubectl delete pv 
+kubectl delete pvc
+kubectl get cm first-configmap -o yaml # to get the description of the configmap 
+kubectl describe cm first-configmap  # to get the description of the configmap 
+kubectl create configmap first-configmap --from-literal=key1=value1 --from-literal=key2=value2 # To create a configmap using literal 
+kubectl create configmap --help
+kubectl create cm second-configmap --from-file=large-file.txt
+kubectl create configmap second-configmap --from-file=large-file.txt
