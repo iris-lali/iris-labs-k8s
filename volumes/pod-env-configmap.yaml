@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-env-pod
+spec:
+ containers:
+ - name: nginx-container
+   image: nginx
+   env:
+   - name: MODE_APP
+     valueFrom:
+       configMapKeyRef:
+         name: demo-configmap
+         key: APP_MODE
+       
