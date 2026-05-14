@@ -71,6 +71,22 @@ kubectl explain pod.spec.containers
 
 ############################################################################
 
+Kubernetes Tools
+
+winget install Kubernetes.kind  ## To install kind on windows
+
+https://kind.sigs.k8s.io/docs/user/quick-start/
+
+kind create cluster --name=iris-cluster # To create cluster in docker
+kind create cluster --name iris-multi --config=multi-nodes-cluster.yaml # Create a multi nodes cluster
+king get clusters
+kind delete cluster --name=<<cluster-name>>
+kubectl config view # to view all the clusters
+kubectl config view | grep kind # to filter all the cluster created with kind.
+kubectl config use-context kind-iris-multi # toswich to iris-multi cluster
+
+############################################################
+
 kubectl get pods --show-labels
 kubectl label pod pod1 env=dev
 kubectl get pods -l env!=dev
@@ -126,6 +142,9 @@ docker pull nginx:1.14.2
 docker tag nginx:1.14.2 irislali12/nginx:1.14.2:v1
 docker push irislali12/nginx:1.14.2:v1
 
+docker build -t irislali12/crashlooptest:v1 .
+docker rmi irislali12/crashlooptest:v1
+
 kubectl create secret docker-registry  \
   --docker-server=${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com \
   --docker-username=AWS \
@@ -137,3 +156,8 @@ kubectl create secret docker-registry demo --docker-server=https://index.docker.
 
 ############### Docker imagepullsecret, link for docker registry
 https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/  
+
+
+###############################
+Taint a node 
+kubectl taint nodes <<node name>> key=value1:NoSchedule
