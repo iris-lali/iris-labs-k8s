@@ -62,8 +62,15 @@ kubectl exec -it nginx -- bash
 kubectl exec -it multi-container-pod -c redis-container -- bash
 kubectl run echo-pod --image=busybox:latest --command -- echo "Hello World!"
 kubectl api-resources
+
+##########################################################################
+# Explain command, one of the best way to learn how to write a manifest
+
 kubectl explain pod
 kubectl explain pod.spec.containers
+
+############################################################################
+
 kubectl get pods --show-labels
 kubectl label pod pod1 env=dev
 kubectl get pods -l env!=dev
@@ -108,3 +115,25 @@ kubectl create configmap first-configmap --from-literal=key1=value1 --from-liter
 kubectl create configmap --help
 kubectl create cm second-configmap --from-file=large-file.txt
 kubectl create configmap second-configmap --from-file=large-file.txt
+
+### Kubectl quick reference
+https://kubernetes.io/docs/reference/kubectl/quick-reference/
+
+######################################################################
+Docker Commands
+
+docker pull nginx:1.14.2
+docker tag nginx:1.14.2 irislali12/nginx:1.14.2:v1
+docker push irislali12/nginx:1.14.2:v1
+
+kubectl create secret docker-registry  \
+  --docker-server=${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com \
+  --docker-username=AWS \
+  --docker-password=$(aws ecr get-login-password) \
+  --namespace=default
+
+kubectl create secret docker-registry demo --docker-server=https://index.docker.io/v1/ --docker-username= --docker-password= --docker-email=  
+
+
+############### Docker imagepullsecret, link for docker registry
+https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/  

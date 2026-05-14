@@ -1,0 +1,19 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata: 
+  name: lali-deployment
+spec: 
+  replicas: 5
+  selector: 
+    matchLabels:
+      app: lali-deployment
+  template:
+    metadata:
+      labels:
+        app: lali-deployment
+    spec:
+      containers:
+        - image: irislali12/nginx-image-demo:v1
+          name: nginx-deployment
+      imagePullSecrets:
+        - name: demo

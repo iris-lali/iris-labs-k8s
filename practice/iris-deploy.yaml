@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: iris-deployment
+  name: iris-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: iris-deployment
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: iris-deployment
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}
