@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: iris-practice-replicaset
+  namespace: dev
+  labels:
+    app: nginx
+spec: 
+  minReadySeconds: 20
+  selector: 
+    matchLabels:
+      app: nginx 
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: nginx 
+    spec:
+      containers:
+        - image: nginx
+          name: demo-replicas
+          volumeMounts:
+           - name: volume-nginx
+             mountPath: /data/local
+          ports: 
+           - containerPort: 80  
+
+      volumes:
+       - name: volume-nginx
+         emptyDir: {}
+
