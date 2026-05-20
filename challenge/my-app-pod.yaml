@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: my-app-pod
+  name: my-app-pod
+spec:
+  containers:
+  - image: nginx:latest
+    name: my-app-pod
+    env:
+    - name: APP_DB_USER
+      valueFrom:
+        secretKeyRef:
+          name: app-secret
+          key: DB_USERNAME
+    - name: APP_DB_PASS
+      valueFrom:
+        secretKeyRef:
+          name: app-secret
+          key: DB_PASSWORD      
