@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: kplabs-cronjob
+spec:
+  jobTemplate:
+    metadata:
+      name: kplabs-cronjob
+    spec:
+      activeDeadlineSeconds: 25
+      template:
+        metadata: {}
+        spec:
+          containers:
+          - command:
+            - echo "Hello from kubernetes Cronjob"
+            image: busybox
+            name: kplabs-cronjob
+          restartPolicy: OnFailure
+  schedule: '*/2 * * * *'
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 5
+  startingDeadlineSeconds: 30
+
