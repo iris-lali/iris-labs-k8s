@@ -176,3 +176,6 @@ kubectl explain deployment --recursive
 in jobtemplate and Delay refers to startingDeadlineSeconds under spec
 
 ##############################################
+
+## kube config EKS ##########
+# C:\Users\lalif\.kube\config
