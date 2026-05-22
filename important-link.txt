@@ -7,6 +7,9 @@ https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
 https://artifacthub.io/
 https://helm.sh/docs/intro/install/
 
+# Topology Spread
+https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/
+
 ### External Website Referenced
 
 https://artifacthub.io/
@@ -100,6 +103,7 @@ kubectl delete -f rs.yaml
 kubectl rollout history deployment/nginx-deployment
 kubectl create deployment nginx-deployment --image=nginx
 kubectl set image --help
+kubectl set image deployment/nginx busybox=busybox nginx=nginx:1.9.1
 kubectl rollout undo deployment nginx-deployment
 kubectl set image deployment/nginx-deployment nginx=httpd:latest
 kubectl rollout undo deployment nginx-deployment --to-revision=2
@@ -161,3 +165,14 @@ https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-regi
 ###############################
 Taint a node 
 kubectl taint nodes <<node name>> key=value1:NoSchedule
+
+kubectl scale --help
+kubectl run --help
+kubectl explain deployment --recursive
+
+##############################
+############ Cronjob ################
+# In crojob Timeout reffers to activeDeadlineSeconds which is defined under spec 
+in jobtemplate and Delay refers to startingDeadlineSeconds under spec
+
+##############################################
