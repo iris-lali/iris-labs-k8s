@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: test
+  labels:
+    run: half-mem-pod
+  name: nginx
+spec:
+  containers:
+  - image: nginx:latest
+    name: half-mem-pod
+    resources:
+      limits:
+        memory: "250Mi"
+  restartPolicy: OnFailure

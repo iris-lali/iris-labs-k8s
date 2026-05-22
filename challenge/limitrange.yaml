@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-resource-constraint
+  namespace: test
+spec:
+  limits:
+
+  - defaultRequest: 
+      cpu: 25m
+    max: 
+      memory: 500Mi
+    type: Container
