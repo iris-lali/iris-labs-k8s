@@ -2,6 +2,7 @@ install kubectl and configure env path
 install eksctl and configure env path
 install aws cli and configure aws profile with root 
 Create cluster: ## eksctl create cluster --name demo-cluster --region us-east-1 --fargate
+delete cluster: # eksctl delete cluster --name demo-cluster --region us-east-1
 configure kubectl for EKS : # aws eks update-kubeconfig --name demo-cluster --us-east-1
 create fargate profile # create fargateprofile --cluster demo-cluster --region us-east-1 --name alb-sample-app --namespace game-2048
 deploy the application: kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/examples/2048/2048_full.yaml
