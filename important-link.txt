@@ -7,6 +7,19 @@ https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
 https://artifacthub.io/
 https://helm.sh/docs/intro/install/
 
+###################################
+
+Argocd
+
+#argocd docs
+https://argo-cd.readthedocs.io/en/stable/
+
+#argocd command reference
+https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd/
+
+# argocd helm install
+https://argo-cd.readthedocs.io/en/stable/user-guide/helm/
+https://github.com/argoproj/argo-helm
 # Topology Spread
 https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/
 
