@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: hello
+  name: hello
+spec:
+  containers:
+  - image: speedracer5dave/nodejs-hello-world
+    name: hello
+    ports:
+    - containerPort: 3000
+      name: nodejs-port
+    resources: {}
+    livenessProbe:
+      httpGet:
+        path: /
+        port: nodejs-port
+      initialDelaySeconds: 5
+      periodSeconds: 8
+    readinessProbe:
+      httpGet:
+        path: /
+        port: nodejs-port
+      initialDelaySeconds: 20 
